@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="header">Simple Library</div>
+    <div class="info">
+        <label for="title">Title <input type="text" id="title"></label>
+            <label for="author">Author <input type="text" id="author"></label>
+            <label for="pages">No of Pages<input type="number" id="pages"></label>
+            <label><input type="radio" name="question" value="read"> Read</label>
+            <label><input type="radio" name="question" value="didn't"> Not Read</label>
+            <button type="submit">Submit</button>
+    </div>
+    <div class="main">
+        <div class="add">New Book</div>
+        
+        <div class="book">
+            <div class="title">The Hobbit</div>
+            <div class="author">by J.R.R. Tolkien</div>
+            <div class="pages">295</div>
+            <div class="status">Read</div>
+        </div>
+    </div>
+  </body>
+</html>
