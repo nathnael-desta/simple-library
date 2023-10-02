@@ -42,7 +42,7 @@ function submitter(){
     let title = titleElement.value;
     let author = authorElement.value;
     let pages = pagesElement.value;
-    let status = statusElement.checked ? "Read" : "Not Read";
+
 
     let bookName = "book" + counter;
     myLibrary[bookName] = new Book(title, author, pages, status);
@@ -60,9 +60,19 @@ function submitter(){
     authorDiv.className = "author";
     authorDiv.textContent = `Author :- ${author}`;
 
+    let ticker = document.createElement('input');
+    ticker.type = 'checkbox';
+    ticker.id = 'tick';
+    ticker.checked = statusElement.checked ? true : false;
+    
+
     let statusDiv = document.createElement('div');
-    statusDiv.className = "status";
-    statusDiv.textContent = status;
+    statusDiv.className = `status ${bookName}`;
+    if(statusElement.checked) {
+        statusDiv.classList.add("yes");
+    } else {
+        statusDiv.classList.add("no")
+    }
 
     let pagesDiv = document.createElement('div');
     pagesDiv.className = "pages";
@@ -78,13 +88,22 @@ function submitter(){
     book.appendChild(statusDiv);
     book.appendChild(pagesDiv);
     book.appendChild(removeDiv);
-    books.appendChild(book);  
+    books.appendChild(book); 
+    statusDiv.appendChild(ticker); 
 
     removeElement = document.querySelectorAll(".remove");
     removeElement.forEach(function(element) {
         element.addEventListener("click", remover);
     })
+
+    let tickers = document.querySelectorAll("#tick");
+    tickers.forEach(function(element) {
+        element.addEventListener("change", changer);
+    })
+    
 }
+
+
 
 
 
@@ -96,4 +115,15 @@ function remover(){
     delete myLibrary[myBook];
     let myDiv = document.querySelector(`.${myBook}`);
     myDiv.remove();
+}
+
+function changer() {
+    let par = this.parentNode;
+    if (this.checked) {
+        par.classList.remove("no");
+        par.classList.add("yes");
+    } else {
+        par.classList.remove("yes");
+        par.classList.add("no");
+    }
 }

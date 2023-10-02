@@ -131,7 +131,8 @@ input[type = "number"] {
 }
 
 .status {
-
+    position: relative;
+    padding-left: 30px;
 }
 
 .remove {
@@ -144,4 +145,20 @@ input[type = "number"] {
     width: 120px;
     justify-self: center;
     padding: 4px;
+}
+
+#tick {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    height: 20px;
+    width: 20px;
+}
+
+.yes::before {
+    content: "Read";
+}
+
+.no::before {
+    content: "Not Read";
 }
